@@ -9,13 +9,18 @@
 /* Begin PBXBuildFile section */
 		731318A92A16CBDE00E12C86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731318A82A16CBDE00E12C86 /* AppDelegate.swift */; };
 		731318AB2A16CBDE00E12C86 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731318AA2A16CBDE00E12C86 /* SceneDelegate.swift */; };
-		731318AD2A16CBDE00E12C86 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731318AC2A16CBDE00E12C86 /* ViewController.swift */; };
+		731318AD2A16CBDE00E12C86 /* SignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731318AC2A16CBDE00E12C86 /* SignViewController.swift */; };
 		731318B02A16CBDE00E12C86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 731318AE2A16CBDE00E12C86 /* Main.storyboard */; };
 		731318B22A16CBE100E12C86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 731318B12A16CBE100E12C86 /* Assets.xcassets */; };
 		731318B52A16CBE100E12C86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 731318B32A16CBE100E12C86 /* LaunchScreen.storyboard */; };
 		731318C02A16CBE100E12C86 /* InstamigosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731318BF2A16CBE100E12C86 /* InstamigosTests.swift */; };
 		731318CA2A16CBE100E12C86 /* InstamigosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731318C92A16CBE100E12C86 /* InstamigosUITests.swift */; };
 		731318CC2A16CBE100E12C86 /* InstamigosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731318CB2A16CBE100E12C86 /* InstamigosUITestsLaunchTests.swift */; };
+		7348B2232A179F6400F3341F /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7348B2222A179F6400F3341F /* MainCoordinator.swift */; };
+		7348B2252A17AA4600F3341F /* SignViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7348B2242A17AA4600F3341F /* SignViewModel.swift */; };
+		7348B2272A17ADB400F3341F /* CreateUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7348B2262A17ADB400F3341F /* CreateUserRequest.swift */; };
+		7348B2292A17AF2A00F3341F /* MainRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7348B2282A17AF2900F3341F /* MainRepository.swift */; };
+		7348B22B2A17AFEF00F3341F /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7348B22A2A17AFEF00F3341F /* Network.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +44,7 @@
 		731318A52A16CBDE00E12C86 /* Instamigos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instamigos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		731318A82A16CBDE00E12C86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		731318AA2A16CBDE00E12C86 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		731318AC2A16CBDE00E12C86 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		731318AC2A16CBDE00E12C86 /* SignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignViewController.swift; sourceTree = "<group>"; };
 		731318AF2A16CBDE00E12C86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		731318B12A16CBE100E12C86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		731318B42A16CBE100E12C86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +54,11 @@
 		731318C52A16CBE100E12C86 /* InstamigosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstamigosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		731318C92A16CBE100E12C86 /* InstamigosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstamigosUITests.swift; sourceTree = "<group>"; };
 		731318CB2A16CBE100E12C86 /* InstamigosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstamigosUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7348B2222A179F6400F3341F /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		7348B2242A17AA4600F3341F /* SignViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignViewModel.swift; sourceTree = "<group>"; };
+		7348B2262A17ADB400F3341F /* CreateUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserRequest.swift; sourceTree = "<group>"; };
+		7348B2282A17AF2900F3341F /* MainRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRepository.swift; sourceTree = "<group>"; };
+		7348B22A2A17AFEF00F3341F /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +111,12 @@
 			children = (
 				731318A82A16CBDE00E12C86 /* AppDelegate.swift */,
 				731318AA2A16CBDE00E12C86 /* SceneDelegate.swift */,
-				731318AC2A16CBDE00E12C86 /* ViewController.swift */,
+				731318AC2A16CBDE00E12C86 /* SignViewController.swift */,
+				7348B2222A179F6400F3341F /* MainCoordinator.swift */,
+				7348B2242A17AA4600F3341F /* SignViewModel.swift */,
+				7348B2262A17ADB400F3341F /* CreateUserRequest.swift */,
+				7348B2282A17AF2900F3341F /* MainRepository.swift */,
+				7348B22A2A17AFEF00F3341F /* Network.swift */,
 				731318AE2A16CBDE00E12C86 /* Main.storyboard */,
 				731318B12A16CBE100E12C86 /* Assets.xcassets */,
 				731318B32A16CBE100E12C86 /* LaunchScreen.storyboard */,
@@ -258,7 +273,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				731318AD2A16CBDE00E12C86 /* ViewController.swift in Sources */,
+				7348B2292A17AF2A00F3341F /* MainRepository.swift in Sources */,
+				7348B2252A17AA4600F3341F /* SignViewModel.swift in Sources */,
+				7348B22B2A17AFEF00F3341F /* Network.swift in Sources */,
+				731318AD2A16CBDE00E12C86 /* SignViewController.swift in Sources */,
+				7348B2272A17ADB400F3341F /* CreateUserRequest.swift in Sources */,
+				7348B2232A179F6400F3341F /* MainCoordinator.swift in Sources */,
 				731318A92A16CBDE00E12C86 /* AppDelegate.swift in Sources */,
 				731318AB2A16CBDE00E12C86 /* SceneDelegate.swift in Sources */,
 			);

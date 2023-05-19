@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SignViewController: UIViewController {
     
     @IBOutlet weak var welcomeDescription: UILabel!
     @IBOutlet weak var signInButton: UIButton!
@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var signConfirmButton: UIButton!
     @IBOutlet var allTextFields: [UITextField]!
     @IBOutlet weak var signCardView: UIView!
+    let signViewModel = SignViewModel()
     
     
     override func viewDidLoad() {
@@ -42,11 +43,26 @@ class ViewController: UIViewController {
     }
     
     @IBAction func signConfirmButtonAction(_ sender: Any) {
-        
+        createUser()
     }
+    
+    func createUser() {
+        let name = nameTextField.text ?? ""
+        let email = emailTextField.text ?? ""
+        let password = passwordTextField.text ?? ""
+        let confirmPassword = confirmPasswordTextField.text
+        
+        signViewModel.getUser(name: name, email: email, password: password)
+    }
+    
+    func loginUser() {
+        let email = emailTextField.text
+        let password = passwordTextField.text
+    }
+    
 }
 
-extension ViewController: UITextFieldDelegate {
+extension SignViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true

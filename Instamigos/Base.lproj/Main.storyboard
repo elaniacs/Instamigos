@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Sign View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Instamigos" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignViewController" id="BYZ-38-t0r" customClass="SignViewController" customModule="Instamigos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -38,8 +38,14 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="goe-66-w8B">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="520.5"/>
                                         <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zn4-PW-ms4">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="16"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="16" id="VXK-4D-Xla"/>
+                                                </constraints>
+                                            </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="it0-uG-qvs">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="34.5"/>
+                                                <rect key="frame" x="0.0" y="16" width="343" height="34.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3bx-Ur-jKp">
                                                         <rect key="frame" x="0.0" y="0.0" width="171.5" height="34.5"/>
@@ -60,7 +66,7 @@
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1JT-lL-15v">
-                                                <rect key="frame" x="0.0" y="34.5" width="343" height="486"/>
+                                                <rect key="frame" x="0.0" y="50.5" width="343" height="470"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="xIr-5R-0cc">
                                                         <rect key="frame" x="16" y="16" width="311" height="184"/>
@@ -88,7 +94,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1si-0V-0kX">
-                                                        <rect key="frame" x="16" y="428.5" width="311" height="33.5"/>
+                                                        <rect key="frame" x="16" y="412.5" width="311" height="33.5"/>
                                                         <color key="backgroundColor" red="0.58105844259999995" green="0.12855249639999999" blue="0.57453137639999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Sign Up">
