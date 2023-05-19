@@ -20,6 +20,7 @@ class SignViewController: UIViewController {
     @IBOutlet var allTextFields: [UITextField]!
     @IBOutlet weak var signCardView: UIView!
     let signViewModel = SignViewModel()
+    var signUp = true
     
     
     override func viewDidLoad() {
@@ -34,16 +35,22 @@ class SignViewController: UIViewController {
         confirmPasswordTextField.isHidden = true
         welcomeDescription.text = "Have a account? Sign In"
         signConfirmButton.setTitle("Sign In", for: .normal)
+        signUp = false
     }
     
     @IBAction func signUpButtonAction(_ sender: UIButton) {
         allTextFields.forEach { $0.isHidden = false }
         welcomeDescription.text = "New here? Sign Up"
         signConfirmButton.setTitle("Sign Up", for: .normal)
+        signUp = true
     }
     
     @IBAction func signConfirmButtonAction(_ sender: Any) {
-        createUser()
+        if signUp {
+            createUser()
+        } else {
+            loginUser()
+        }
     }
     
     func createUser() {
@@ -52,14 +59,15 @@ class SignViewController: UIViewController {
         let password = passwordTextField.text ?? ""
         let confirmPassword = confirmPasswordTextField.text
         
-        signViewModel.getUser(name: name, email: email, password: password)
+        signViewModel.postUser(name: name, email: email, password: password)
     }
     
     func loginUser() {
-        let email = emailTextField.text
-        let password = passwordTextField.text
+        let email = emailTextField.text ?? ""
+        let password = passwordTextField.text ?? ""
+        
+        signViewModel.loginUser(email: email, password: password)
     }
-    
 }
 
 extension SignViewController: UITextFieldDelegate {

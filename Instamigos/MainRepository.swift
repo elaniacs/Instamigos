@@ -12,6 +12,10 @@ class MainRepository {
     let network = Network()
     
     func getUser(data: CreateUserRequest) {
-        network.fetchRequest(requestBody: data)
+        network.fetchRequest(urlPath: "/users", requestBody: data)
+    }
+    
+    func loginUser(authentication: BasicAuthenticationRequest) {
+        network.fetchRequest(urlPath: "/users/login", authentication: authentication)
     }
 }
