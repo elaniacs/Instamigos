@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -42,20 +41,23 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="it0-uG-qvs">
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="34.5"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fM7-KR-uSq">
-                                                        <rect key="frame" x="0.0" y="0.0" width="171.5" height="34.5"/>
-                                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="Sign In"/>
-                                                    </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3bx-Ur-jKp">
-                                                        <rect key="frame" x="171.5" y="0.0" width="171.5" height="34.5"/>
-                                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="171.5" height="34.5"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Sign Up"/>
+                                                        <connections>
+                                                            <action selector="signUpButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rEy-DU-5jz"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fM7-KR-uSq">
+                                                        <rect key="frame" x="171.5" y="0.0" width="171.5" height="34.5"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="Sign In"/>
+                                                        <connections>
+                                                            <action selector="signInButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YFj-v3-H4X"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.031372549020000001" green="0.54117647059999996" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1JT-lL-15v">
                                                 <rect key="frame" x="0.0" y="34.5" width="343" height="486"/>
@@ -93,9 +95,11 @@
                                                             <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
                                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="signConfirmButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ffa-w5-trq"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="1si-0V-0kX" secondAttribute="bottom" constant="24" id="E2b-1v-6g2"/>
                                                     <constraint firstItem="xIr-5R-0cc" firstAttribute="leading" secondItem="1JT-lL-15v" secondAttribute="leading" constant="16" id="Ptk-lz-Hc4"/>
@@ -107,11 +111,10 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="goe-66-w8B" secondAttribute="trailing" id="8el-j0-GBC"/>
                                     <constraint firstItem="goe-66-w8B" firstAttribute="top" secondItem="j9w-lq-ySm" secondAttribute="top" id="cVv-9o-Vpn"/>
@@ -132,21 +135,25 @@
                             <constraint firstItem="o4o-1G-9ca" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="44" id="vkd-W1-YMW"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="confirmPasswordTextField" destination="ZtC-YD-nvv" id="SB4-1T-kBa"/>
+                        <outlet property="emailTextField" destination="HDF-TN-meJ" id="5M1-kh-uXh"/>
+                        <outlet property="nameTextField" destination="7yu-TQ-SUQ" id="k3h-Nj-vh0"/>
+                        <outlet property="passwordTextField" destination="IXS-w9-KAu" id="bHX-Vo-95u"/>
+                        <outlet property="signCardView" destination="j9w-lq-ySm" id="VoA-mO-W4P"/>
+                        <outlet property="signConfirmButton" destination="1si-0V-0kX" id="whn-7h-5bb"/>
+                        <outlet property="signInButton" destination="fM7-KR-uSq" id="9ve-vd-Sph"/>
+                        <outlet property="signUpButton" destination="3bx-Ur-jKp" id="ezh-LW-sBu"/>
+                        <outlet property="welcomeDescription" destination="0jU-og-6X7" id="xtg-HS-3Px"/>
+                        <outletCollection property="allTextFields" destination="7yu-TQ-SUQ" collectionClass="NSMutableArray" id="kSL-cD-Y1f"/>
+                        <outletCollection property="allTextFields" destination="HDF-TN-meJ" collectionClass="NSMutableArray" id="IRV-xh-iiC"/>
+                        <outletCollection property="allTextFields" destination="IXS-w9-KAu" collectionClass="NSMutableArray" id="hLv-te-gjT"/>
+                        <outletCollection property="allTextFields" destination="ZtC-YD-nvv" collectionClass="NSMutableArray" id="mFu-Wl-xDs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="90.400000000000006" y="-34.632683658170919"/>
         </scene>
     </scenes>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemPurpleColor">
-            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-    </resources>
 </document>
