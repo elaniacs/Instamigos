@@ -77,6 +77,7 @@ extension SignViewController: UITextFieldDelegate {
     }
 }
 
+// TODO: MOVER PARA UM ARQUIVO PRÓPRIO
 extension UIView {
     func applyShadow() {
         layer.shadowColor = UIColor.black.cgColor

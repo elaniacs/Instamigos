@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		731203612A181B67005FB582 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731203602A181B66005FB582 /* FeedViewController.swift */; };
 		731318A92A16CBDE00E12C86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731318A82A16CBDE00E12C86 /* AppDelegate.swift */; };
 		731318AB2A16CBDE00E12C86 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731318AA2A16CBDE00E12C86 /* SceneDelegate.swift */; };
 		731318AD2A16CBDE00E12C86 /* SignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731318AC2A16CBDE00E12C86 /* SignViewController.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		731203602A181B66005FB582 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		731318A52A16CBDE00E12C86 /* Instamigos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instamigos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		731318A82A16CBDE00E12C86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		731318AA2A16CBDE00E12C86 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,80 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		731203622A181BB4005FB582 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				731203602A181B66005FB582 /* FeedViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		731203632A181C15005FB582 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				731203622A181BB4005FB582 /* Controller */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		731203642A181C41005FB582 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				731318AC2A16CBDE00E12C86 /* SignViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		731203652A181C49005FB582 /* Sign */ = {
+			isa = PBXGroup;
+			children = (
+				7312036A2A181D42005FB582 /* Model */,
+				731203662A181CA6005FB582 /* ViewModel */,
+				731203642A181C41005FB582 /* Controller */,
+			);
+			path = Sign;
+			sourceTree = "<group>";
+		};
+		731203662A181CA6005FB582 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7348B2242A17AA4600F3341F /* SignViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		731203672A181CF0005FB582 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				7348B2222A179F6400F3341F /* MainCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		731203682A181D0A005FB582 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				7348B22A2A17AFEF00F3341F /* Network.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		731203692A181D18005FB582 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				7348B2282A17AF2900F3341F /* MainRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		7312036A2A181D42005FB582 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7348B2262A17ADB400F3341F /* CreateUserRequest.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		7313189C2A16CBDE00E12C86 = {
 			isa = PBXGroup;
 			children = (
@@ -111,12 +187,11 @@
 			children = (
 				731318A82A16CBDE00E12C86 /* AppDelegate.swift */,
 				731318AA2A16CBDE00E12C86 /* SceneDelegate.swift */,
-				731318AC2A16CBDE00E12C86 /* SignViewController.swift */,
-				7348B2222A179F6400F3341F /* MainCoordinator.swift */,
-				7348B2242A17AA4600F3341F /* SignViewModel.swift */,
-				7348B2262A17ADB400F3341F /* CreateUserRequest.swift */,
-				7348B2282A17AF2900F3341F /* MainRepository.swift */,
-				7348B22A2A17AFEF00F3341F /* Network.swift */,
+				731203652A181C49005FB582 /* Sign */,
+				731203632A181C15005FB582 /* Feed */,
+				731203672A181CF0005FB582 /* Coordinator */,
+				731203692A181D18005FB582 /* Repository */,
+				731203682A181D0A005FB582 /* Network */,
 				731318AE2A16CBDE00E12C86 /* Main.storyboard */,
 				731318B12A16CBE100E12C86 /* Assets.xcassets */,
 				731318B32A16CBE100E12C86 /* LaunchScreen.storyboard */,
@@ -274,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7348B2292A17AF2A00F3341F /* MainRepository.swift in Sources */,
+				731203612A181B67005FB582 /* FeedViewController.swift in Sources */,
 				7348B2252A17AA4600F3341F /* SignViewModel.swift in Sources */,
 				7348B22B2A17AFEF00F3341F /* Network.swift in Sources */,
 				731318AD2A16CBDE00E12C86 /* SignViewController.swift in Sources */,
