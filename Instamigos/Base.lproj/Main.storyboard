@@ -174,15 +174,15 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FeedTableViewCell" id="fjq-nB-lBL">
-                                        <rect key="frame" x="0.0" y="50" width="375" height="103"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FeedTableViewCell" id="fjq-nB-lBL" customClass="FeedTableViewCell" customModule="Instamigos" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="375" height="143"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fjq-nB-lBL" id="4eR-tl-0Vb">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="103"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="143"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y3z-Wd-c0z">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="103"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="143"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PsK-bt-H1y">
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="66"/>
@@ -224,7 +224,7 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DQ4-Qs-GVm">
                                                             <rect key="frame" x="0.0" y="66" width="375" height="37"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Conteúdo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1F-nR-GaY">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Conteúdo" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1F-nR-GaY">
                                                                     <rect key="frame" x="16" y="8" width="75" height="21"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
@@ -238,17 +238,39 @@
                                                                 <constraint firstItem="f1F-nR-GaY" firstAttribute="top" secondItem="DQ4-Qs-GVm" secondAttribute="top" constant="8" id="lcR-Or-DGa"/>
                                                             </constraints>
                                                         </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJc-w8-wCF">
+                                                            <rect key="frame" x="0.0" y="103" width="375" height="40"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWQ-lc-vmK">
+                                                                    <rect key="frame" x="309.5" y="3" width="49.5" height="34"/>
+                                                                    <state key="normal" title="Button"/>
+                                                                    <buttonConfiguration key="configuration" style="plain" image="hand.thumbsup" catalog="system"/>
+                                                                    <connections>
+                                                                        <action selector="likeButtonAction:" destination="fjq-nB-lBL" eventType="touchUpInside" id="7cC-mM-F6N"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="40" id="1Ib-ZN-uz3"/>
+                                                                <constraint firstItem="eWQ-lc-vmK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dJc-w8-wCF" secondAttribute="leading" constant="16" id="854-Vc-8ks"/>
+                                                                <constraint firstItem="eWQ-lc-vmK" firstAttribute="centerY" secondItem="dJc-w8-wCF" secondAttribute="centerY" id="LzK-hx-UdR"/>
+                                                                <constraint firstAttribute="trailing" secondItem="eWQ-lc-vmK" secondAttribute="trailing" constant="16" id="oAT-Ou-e2v"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstItem="DQ4-Qs-GVm" firstAttribute="leading" secondItem="Y3z-Wd-c0z" secondAttribute="leading" id="Ajt-HV-npe"/>
                                                         <constraint firstItem="PsK-bt-H1y" firstAttribute="top" secondItem="Y3z-Wd-c0z" secondAttribute="top" id="D8I-HC-eyp"/>
+                                                        <constraint firstItem="dJc-w8-wCF" firstAttribute="trailing" secondItem="DQ4-Qs-GVm" secondAttribute="trailing" id="FHd-7o-C9v"/>
+                                                        <constraint firstItem="dJc-w8-wCF" firstAttribute="leading" secondItem="DQ4-Qs-GVm" secondAttribute="leading" id="FRU-Uu-zRk"/>
                                                         <constraint firstAttribute="trailing" secondItem="DQ4-Qs-GVm" secondAttribute="trailing" id="Ij6-Pj-9DR"/>
                                                         <constraint firstItem="DQ4-Qs-GVm" firstAttribute="top" secondItem="PsK-bt-H1y" secondAttribute="bottom" id="Kjp-ys-xXv"/>
                                                         <constraint firstItem="PsK-bt-H1y" firstAttribute="leading" secondItem="Y3z-Wd-c0z" secondAttribute="leading" id="Zri-jW-NFt"/>
+                                                        <constraint firstAttribute="bottom" secondItem="dJc-w8-wCF" secondAttribute="bottom" id="eRw-AM-5SG"/>
                                                         <constraint firstAttribute="trailing" secondItem="PsK-bt-H1y" secondAttribute="trailing" id="jeQ-RE-Plj"/>
-                                                        <constraint firstAttribute="bottom" secondItem="DQ4-Qs-GVm" secondAttribute="bottom" id="mxi-Tn-JmH"/>
                                                         <constraint firstItem="f1F-nR-GaY" firstAttribute="leading" secondItem="Jkb-DD-37d" secondAttribute="leading" id="pDe-2D-mhY"/>
+                                                        <constraint firstItem="dJc-w8-wCF" firstAttribute="top" secondItem="DQ4-Qs-GVm" secondAttribute="bottom" id="pfU-Ae-yHI"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -259,6 +281,13 @@
                                                 <constraint firstAttribute="trailing" secondItem="Y3z-Wd-c0z" secondAttribute="trailing" id="ow0-ae-qZv"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="avatarImageView" destination="Jkb-DD-37d" id="lAe-O0-Epx"/>
+                                            <outlet property="contentLabel" destination="f1F-nR-GaY" id="RIV-vz-xEM"/>
+                                            <outlet property="likeButton" destination="eWQ-lc-vmK" id="EY2-kt-Vbb"/>
+                                            <outlet property="nameLabel" destination="OrK-GO-1o6" id="Wkh-i0-SKc"/>
+                                            <outlet property="timeLabel" destination="XMY-U3-nNe" id="lTc-dK-8gv"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -273,7 +302,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="feedTableView" destination="alG-TJ-8xd" id="WJL-ac-TBh"/>
+                        <outlet property="feedTableView" destination="alG-TJ-8xd" id="CZd-aq-Rxa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YtS-Nt-fur" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -282,6 +311,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="hand.thumbsup" catalog="system" width="123" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

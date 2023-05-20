@@ -10,8 +10,8 @@ import UIKit
 class FeedViewController: UIViewController {
     
     @IBOutlet weak var feedTableView: UITableView!
+    let feedCell: [FeedCellModel] = []
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         feedTableView.delegate = self
@@ -21,12 +21,16 @@ class FeedViewController: UIViewController {
 
 extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        feedCell.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FeedTableViewCell", for: indexPath) as? FeedTableViewCell else {
+            return UITableViewCell()
+        }
+        cell.populateCell(data: feedCell[indexPath.row])
+        return cell
+        
     }
-    
-    
 }
+
