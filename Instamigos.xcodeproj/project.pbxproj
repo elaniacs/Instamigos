@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		730BF6D82A190A6D0055495B /* FeedCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730BF6D72A190A6D0055495B /* FeedCellModel.swift */; };
+		730BF6DB2A1939360055495B /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730BF6DA2A1939360055495B /* PostViewController.swift */; };
 		731203612A181B67005FB582 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731203602A181B66005FB582 /* FeedViewController.swift */; };
 		731318A92A16CBDE00E12C86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731318A82A16CBDE00E12C86 /* AppDelegate.swift */; };
 		731318AB2A16CBDE00E12C86 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731318AA2A16CBDE00E12C86 /* SceneDelegate.swift */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		730BF6D72A190A6D0055495B /* FeedCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCellModel.swift; sourceTree = "<group>"; };
+		730BF6DA2A1939360055495B /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		731203602A181B66005FB582 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		731318A52A16CBDE00E12C86 /* Instamigos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instamigos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		731318A82A16CBDE00E12C86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +100,22 @@
 				730BF6D72A190A6D0055495B /* FeedCellModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		730BF6D92A1939100055495B /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				730BF6DC2A19393C0055495B /* Controller */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
+		730BF6DC2A19393C0055495B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				730BF6DA2A1939360055495B /* PostViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		731203622A181BB4005FB582 /* Controller */ = {
@@ -203,6 +221,7 @@
 				731318AA2A16CBDE00E12C86 /* SceneDelegate.swift */,
 				731203652A181C49005FB582 /* Sign */,
 				731203632A181C15005FB582 /* Feed */,
+				730BF6D92A1939100055495B /* Post */,
 				731203672A181CF0005FB582 /* Coordinator */,
 				731203692A181D18005FB582 /* Repository */,
 				731203682A181D0A005FB582 /* Network */,
@@ -370,6 +389,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				730BF6DB2A1939360055495B /* PostViewController.swift in Sources */,
 				7348B2292A17AF2A00F3341F /* MainRepository.swift in Sources */,
 				731203612A181B67005FB582 /* FeedViewController.swift in Sources */,
 				7348B2252A17AA4600F3341F /* SignViewModel.swift in Sources */,

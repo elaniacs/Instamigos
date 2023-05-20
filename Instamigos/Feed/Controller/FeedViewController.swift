@@ -12,10 +12,20 @@ class FeedViewController: UIViewController {
     @IBOutlet weak var feedTableView: UITableView!
     let feedCell: [FeedCellModel] = []
     
+    weak var mainCoordinator: MainCoordinator?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         feedTableView.delegate = self
         feedTableView.dataSource = self
+        
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
+        navigationItem.rightBarButtonItems = [addButton]
+    }
+    
+    @objc
+    func addButtonTapped() {
+        mainCoordinator?.callPostViewController()
     }
 }
 
@@ -33,4 +43,3 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
         
     }
 }
-

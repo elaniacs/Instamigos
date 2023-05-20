@@ -27,7 +27,19 @@ class MainCoordinator {
     
     func callFeedViewController() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "FeedViewController")
-        navigationController.pushViewController(viewController, animated: true)
+        if let viewController = storyboard.instantiateViewController(withIdentifier: "FeedViewController") as? FeedViewController {
+            viewController.mainCoordinator = self
+            navigationController.pushViewController(viewController, animated: true)
+        }
+    }
+    
+    func callPostViewController() {
+        let currentViewController = navigationController.topViewController
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let viewController = storyboard.instantiateViewController(withIdentifier: "PostViewController") as? PostViewController {
+            viewController.mainCoordinator = self
+            currentViewController?.present(viewController, animated: true)
+        }
     }
 }
