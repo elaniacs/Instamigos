@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CreateUserResponse: Decodable {
+struct SessionUserResponse: Decodable {
     let token: String?
     let user: UserModel?
 }
@@ -18,12 +18,18 @@ struct CreateUserRequest: Encodable {
     let password: String
 }
 
-struct BasicAuthenticationRequest {
+struct BasicAuthenticationModel {
     let email: String
     let password: String
     
-    var loginString: String {
-        String(format: "%@:%@", email, password)
+    func loginString() -> String? {
+        let loginString = String(format: "%@:%@", email, password)
+        
+        if let loginStringData = loginString.data(using: .utf8) {
+            let base64LoginString = loginStringData.base64EncodedString()
+            return base64LoginString
+        }
+        return nil
     }
 }
 

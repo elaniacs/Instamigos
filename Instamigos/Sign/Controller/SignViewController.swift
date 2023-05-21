@@ -28,6 +28,8 @@ class SignViewController: UIViewController {
         allTextFields.forEach { $0.delegate = self }
         signCardView.layer.cornerRadius = 10.0
         signCardView.applyShadow()
+        emailTextField.text = "elaniacs@gmail.com"
+        passwordTextField.text = "123456"
     }
     
     @IBAction func signInButtonAction(_ sender: UIButton) {

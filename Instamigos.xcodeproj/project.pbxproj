@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		730BF6D82A190A6D0055495B /* FeedCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730BF6D72A190A6D0055495B /* FeedCellModel.swift */; };
 		730BF6DB2A1939360055495B /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730BF6DA2A1939360055495B /* PostViewController.swift */; };
+		730BF6DE2A1968E80055495B /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730BF6DD2A1968E80055495B /* PostViewModel.swift */; };
+		730BF6E22A1A6A000055495B /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730BF6E12A1A6A000055495B /* KeychainManager.swift */; };
 		731203612A181B67005FB582 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731203602A181B66005FB582 /* FeedViewController.swift */; };
 		731318A92A16CBDE00E12C86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731318A82A16CBDE00E12C86 /* AppDelegate.swift */; };
 		731318AB2A16CBDE00E12C86 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731318AA2A16CBDE00E12C86 /* SceneDelegate.swift */; };
@@ -47,6 +49,8 @@
 /* Begin PBXFileReference section */
 		730BF6D72A190A6D0055495B /* FeedCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCellModel.swift; sourceTree = "<group>"; };
 		730BF6DA2A1939360055495B /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		730BF6DD2A1968E80055495B /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		730BF6E12A1A6A000055495B /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		731203602A181B66005FB582 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		731318A52A16CBDE00E12C86 /* Instamigos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instamigos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		731318A82A16CBDE00E12C86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				730BF6DC2A19393C0055495B /* Controller */,
+				730BF6DF2A1968ED0055495B /* ViewModel */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -116,6 +121,22 @@
 				730BF6DA2A1939360055495B /* PostViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		730BF6DF2A1968ED0055495B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				730BF6DD2A1968E80055495B /* PostViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		730BF6E02A1A69B40055495B /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				730BF6E12A1A6A000055495B /* KeychainManager.swift */,
+			);
+			path = Security;
 			sourceTree = "<group>";
 		};
 		731203622A181BB4005FB582 /* Controller */ = {
@@ -219,12 +240,13 @@
 			children = (
 				731318A82A16CBDE00E12C86 /* AppDelegate.swift */,
 				731318AA2A16CBDE00E12C86 /* SceneDelegate.swift */,
+				730BF6E02A1A69B40055495B /* Security */,
+				731203692A181D18005FB582 /* Repository */,
+				731203682A181D0A005FB582 /* Network */,
+				731203672A181CF0005FB582 /* Coordinator */,
 				731203652A181C49005FB582 /* Sign */,
 				731203632A181C15005FB582 /* Feed */,
 				730BF6D92A1939100055495B /* Post */,
-				731203672A181CF0005FB582 /* Coordinator */,
-				731203692A181D18005FB582 /* Repository */,
-				731203682A181D0A005FB582 /* Network */,
 				731318AE2A16CBDE00E12C86 /* Main.storyboard */,
 				731318B12A16CBE100E12C86 /* Assets.xcassets */,
 				731318B32A16CBE100E12C86 /* LaunchScreen.storyboard */,
@@ -389,6 +411,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				730BF6DE2A1968E80055495B /* PostViewModel.swift in Sources */,
 				730BF6DB2A1939360055495B /* PostViewController.swift in Sources */,
 				7348B2292A17AF2A00F3341F /* MainRepository.swift in Sources */,
 				731203612A181B67005FB582 /* FeedViewController.swift in Sources */,
@@ -397,6 +420,7 @@
 				731318AD2A16CBDE00E12C86 /* SignViewController.swift in Sources */,
 				7348B2272A17ADB400F3341F /* CreateUserRequest.swift in Sources */,
 				7348B2232A179F6400F3341F /* MainCoordinator.swift in Sources */,
+				730BF6E22A1A6A000055495B /* KeychainManager.swift in Sources */,
 				730BF6D82A190A6D0055495B /* FeedCellModel.swift in Sources */,
 				731318A92A16CBDE00E12C86 /* AppDelegate.swift in Sources */,
 				731318AB2A16CBDE00E12C86 /* SceneDelegate.swift in Sources */,

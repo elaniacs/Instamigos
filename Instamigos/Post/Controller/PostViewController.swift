@@ -30,6 +30,11 @@ class PostViewController: UIViewController {
         contentTextView.text = "What is on your mind?"
         contentTextView.textColor = UIColor.lightGray
     }
+    
+    func createPost() {
+        let content = contentTextView.text ?? ""
+        
+    }
 }
 
 extension PostViewController: UITextViewDelegate {

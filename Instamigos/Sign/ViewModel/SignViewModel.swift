@@ -13,11 +13,15 @@ class SignViewModel {
     
     func postUser(name: String, email: String, password: String) {
         let data = CreateUserRequest(name: name, email: email, password: password)
-        mainRepository.getUser(data: data)
+        mainRepository.postUser(data: data)
     }
     
     func loginUser(email: String, password: String) {
-        let authentication = BasicAuthenticationRequest(email: email, password: password)
-        mainRepository.loginUser(authentication: authentication)
+        let authentication = BasicAuthenticationModel(email: email, password: password)
+        mainRepository.loginUser(authentication: authentication) { responseData in
+            if let token = responseData.token {
+                KeychainManager.shared.saveToken(token: token)
+            }
+        }
     }
 }

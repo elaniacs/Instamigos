@@ -14,10 +14,38 @@ enum HTTPMethods: String {
     case delete = "DELETE"
 }
 
+enum ContentTypes {
+    case json
+    case textPlain(content: String)
+    
+    func rawValue() -> String{
+        switch self {
+        case .json:
+            return "application/json"
+        case .textPlain:
+            return "text/plain"
+        }
+    }
+}
+
+enum AuthenticationType {
+    case basic(loginString: String)
+    case bearer(token: String)
+    
+    func authorizationHeaderValue() -> String {
+        switch self {
+        case .basic(let loginString):
+            return "Basic \(loginString)"
+        case .bearer(let token):
+            return "Bearer \(token)"
+        }
+    }
+}
+
+
 class Network {
     
-    func fetchRequest(urlPath: String, requestBody: CreateUserRequest? = nil, authentication: BasicAuthenticationRequest? = nil) {
-        
+    func fetchRequest(urlPath: String, requestBody: CreateUserRequest?, authentication: AuthenticationType?, httpMethod: HTTPMethods, contentType: ContentTypes?, completion: ((_ responseData: SessionUserResponse) -> Void)?) {
         
         let session = URLSession.shared
         
@@ -29,18 +57,28 @@ class Network {
         
         guard let url = urlComponents.url else { return }
         var request = URLRequest(url: url)
-        request.httpMethod = HTTPMethods.post.rawValue
-        
-        if let authenticationData = authentication?.loginString.data(using: String.Encoding.utf8) {
-            let base64LoginString = authenticationData.base64EncodedString()
-            request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
+        request.httpMethod = httpMethod.rawValue
+ 
+        if let authentication = authentication {
+            let authorizationHeaderValue = authentication.authorizationHeaderValue()
+            request.setValue(authorizationHeaderValue, forHTTPHeaderField: "Authorization")
         }
         
         do {
+            var httpBody: Data?
             let encoder = JSONEncoder()
-            let httpBody = try encoder.encode(requestBody)
+            
+            switch contentType {
+            case .json:
+                httpBody = try encoder.encode(requestBody)
+            case .textPlain(let content):
+                httpBody = content.data(using: .utf8)
+            default:
+                break
+            }
+            
             request.httpBody = httpBody
-            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.setValue(contentType?.rawValue(), forHTTPHeaderField: "Content-Type")
             
         } catch {
             print("Erro ao serializar os dados JSON: \(error)")
@@ -62,7 +100,9 @@ class Network {
             
             do {
                 let decoder = JSONDecoder()
-                let responseData = try decoder.decode(CreateUserResponse.self, from: data)
+                let responseData = try decoder.decode(SessionUserResponse.self, from: data)
+                completion?(responseData)
+                
                 
             } catch {
                 print("Erro ao decodificar os dados JSON: \(error)")
@@ -72,3 +112,4 @@ class Network {
         task.resume()
     }
 }
+
