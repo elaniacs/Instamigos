@@ -10,8 +10,11 @@ import Foundation
 class PostViewModel {
     let mainRepository = MainRepository()
     
-    func createPost(content: String) {
-        mainRepository.postCreatePost(content: content)
+    func createPost(content: String, completion: (() -> Void)?) {
+        mainRepository.postCreatePost(content: content) {
+            completion?()
+        }
     }
 }
+
 

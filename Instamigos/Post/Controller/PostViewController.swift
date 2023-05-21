@@ -22,8 +22,6 @@ class PostViewController: UIViewController {
         createPost()
     }
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         contentTextView.delegate = self
@@ -37,9 +35,11 @@ class PostViewController: UIViewController {
     
     func createPost() {
         let content = contentTextView.text ?? ""
-        postViewModel.createPost(content: content)
-        
-        
+        postViewModel.createPost(content: content) {
+            DispatchQueue.main.async {
+                self.dismiss(animated: true)
+            }
+        }
     }
 }
 
