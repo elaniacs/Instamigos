@@ -337,7 +337,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Post"/>
                                         <connections>
-                                            <action selector="PostButtonAction:" destination="Ufs-jQ-1o4" eventType="touchUpInside" id="RGk-jn-n2h"/>
+                                            <action selector="postButtonAction:" destination="Ufs-jQ-1o4" eventType="touchUpInside" id="RJk-PC-N6f"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -364,7 +364,7 @@
                     </view>
                     <connections>
                         <outlet property="contentTextView" destination="50D-a4-ooa" id="I1m-UM-es6"/>
-                        <outlet property="postButton" destination="rTO-rm-sdo" id="5o3-3o-yAe"/>
+                        <outlet property="postButton" destination="rTO-rm-sdo" id="y7b-hw-ASb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="13Y-Vo-ncy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

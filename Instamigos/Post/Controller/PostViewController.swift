@@ -12,13 +12,17 @@ class PostViewController: UIViewController {
     @IBOutlet weak var postButton: UIButton!
     @IBOutlet weak var contentTextView: UITextView!
     weak var mainCoordinator: MainCoordinator?
+    let postViewModel = PostViewModel()
     
     @IBAction func cancelButtonAction(_ sender: UIButton) {
         self.dismiss(animated: true)
     }
     
     @IBAction func postButtonAction(_ sender: UIButton) {
+        createPost()
     }
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +37,8 @@ class PostViewController: UIViewController {
     
     func createPost() {
         let content = contentTextView.text ?? ""
+        postViewModel.createPost(content: content)
+        
         
     }
 }

@@ -16,11 +16,12 @@ class SignViewModel {
         mainRepository.postUser(data: data)
     }
     
-    func loginUser(email: String, password: String) {
+    func loginUser(email: String, password: String, completion: (() -> Void)?) {
         let authentication = BasicAuthenticationModel(email: email, password: password)
         mainRepository.loginUser(authentication: authentication) { responseData in
             if let token = responseData.token {
                 KeychainManager.shared.saveToken(token: token)
+                completion?()
             }
         }
     }

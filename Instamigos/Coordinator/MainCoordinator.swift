@@ -16,15 +16,19 @@ class MainCoordinator {
     
     func start() {
          let storyboard = UIStoryboard(name: "Main", bundle: nil)
-         let viewController = storyboard.instantiateViewController(withIdentifier: "SignViewController")
-         navigationController.pushViewController(viewController, animated: true)
+        if let viewController = storyboard.instantiateViewController(withIdentifier: "SignViewController") as? SignViewController {
+            viewController.mainCoordinator = self
+            navigationController.pushViewController(viewController, animated: true)
+        }
     }
     
     func callFeedViewController() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let viewController = storyboard.instantiateViewController(withIdentifier: "FeedViewController") as? FeedViewController {
-            viewController.mainCoordinator = self
-            navigationController.pushViewController(viewController, animated: true)
+        DispatchQueue.main.async {
+            if let viewController = storyboard.instantiateViewController(withIdentifier: "FeedViewController") as? FeedViewController {
+                viewController.mainCoordinator = self
+                self.navigationController.pushViewController(viewController, animated: true)
+            }
         }
     }
     

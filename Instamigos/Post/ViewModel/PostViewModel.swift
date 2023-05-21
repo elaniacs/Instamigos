@@ -14,3 +14,4 @@ class PostViewModel {
         mainRepository.postCreatePost(content: content)
     }
 }
+

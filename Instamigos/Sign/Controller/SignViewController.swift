@@ -21,7 +21,7 @@ class SignViewController: UIViewController {
     @IBOutlet weak var signCardView: UIView!
     let signViewModel = SignViewModel()
     var signUp = true
-    
+    weak var mainCoordinator: MainCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +68,9 @@ class SignViewController: UIViewController {
         let email = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""
         
-        signViewModel.loginUser(email: email, password: password)
+        signViewModel.loginUser(email: email, password: password) {
+            self.mainCoordinator?.callFeedViewController()
+        }
     }
 }
 
