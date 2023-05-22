@@ -33,11 +33,12 @@ class MainCoordinator {
     }
     
     func callPostViewController() {
-        let currentViewController = navigationController.topViewController
+        let currentViewController = navigationController.topViewController as? FeedViewController
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let viewController = storyboard.instantiateViewController(withIdentifier: "PostViewController") as? PostViewController {
             viewController.mainCoordinator = self
+            viewController.afterDismiss = currentViewController?.reloadData
             currentViewController?.present(viewController, animated: true)
         }
     }

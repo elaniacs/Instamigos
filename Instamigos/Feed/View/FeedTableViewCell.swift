@@ -22,17 +22,19 @@ class FeedTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    
     func populateCell(data: FeedCellModel) {
-        nameLabel.text = data.name
         timeLabel.text = data.createdAt
         contentLabel.text = data.content
+    }
+    
+    func getName(name: String?) {
+        DispatchQueue.main.async {
+            self.nameLabel.text = name
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }

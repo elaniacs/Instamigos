@@ -45,7 +45,7 @@ enum AuthenticationType {
 
 class Network {
     
-    func fetchRequest(urlPath: String, requestBody: CreateUserRequest?, authentication: AuthenticationType?, httpMethod: HTTPMethods, contentType: ContentTypes?, completion: ((_ responseData: SessionUserResponse) -> Void)?) {
+    func fetchRequest<T: Decodable>(urlPath: String, requestBody: CreateUserRequest?, authentication: AuthenticationType?, httpMethod: HTTPMethods, contentType: ContentTypes?, completion: @escaping ((_ responseData: T) -> Void)) {
         
         let session = URLSession.shared
         
@@ -100,9 +100,8 @@ class Network {
             
             do {
                 let decoder = JSONDecoder()
-                let responseData = try decoder.decode(SessionUserResponse.self, from: data)
-                completion?(responseData)
-                
+                let responseData = try decoder.decode(T.self, from: data)
+                completion(responseData)
                 
             } catch {
                 print("Erro ao decodificar os dados JSON: \(error)")

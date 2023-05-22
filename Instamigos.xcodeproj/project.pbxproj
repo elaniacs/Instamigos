@@ -11,6 +11,8 @@
 		730BF6DB2A1939360055495B /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730BF6DA2A1939360055495B /* PostViewController.swift */; };
 		730BF6DE2A1968E80055495B /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730BF6DD2A1968E80055495B /* PostViewModel.swift */; };
 		730BF6E22A1A6A000055495B /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730BF6E12A1A6A000055495B /* KeychainManager.swift */; };
+		730BF6E52A1AB51E0055495B /* PostLikeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730BF6E42A1AB51E0055495B /* PostLikeResponse.swift */; };
+		730BF6E82A1AC7680055495B /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730BF6E72A1AC7680055495B /* FeedViewModel.swift */; };
 		731203612A181B67005FB582 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731203602A181B66005FB582 /* FeedViewController.swift */; };
 		731318A92A16CBDE00E12C86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731318A82A16CBDE00E12C86 /* AppDelegate.swift */; };
 		731318AB2A16CBDE00E12C86 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731318AA2A16CBDE00E12C86 /* SceneDelegate.swift */; };
@@ -51,6 +53,8 @@
 		730BF6DA2A1939360055495B /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		730BF6DD2A1968E80055495B /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		730BF6E12A1A6A000055495B /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		730BF6E42A1AB51E0055495B /* PostLikeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLikeResponse.swift; sourceTree = "<group>"; };
+		730BF6E72A1AC7680055495B /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		731203602A181B66005FB582 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		731318A52A16CBDE00E12C86 /* Instamigos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instamigos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		731318A82A16CBDE00E12C86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +113,7 @@
 		730BF6D92A1939100055495B /* Post */ = {
 			isa = PBXGroup;
 			children = (
+				730BF6E32A1AB5060055495B /* Model */,
 				730BF6DC2A19393C0055495B /* Controller */,
 				730BF6DF2A1968ED0055495B /* ViewModel */,
 			);
@@ -139,6 +144,22 @@
 			path = Security;
 			sourceTree = "<group>";
 		};
+		730BF6E32A1AB5060055495B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				730BF6E42A1AB51E0055495B /* PostLikeResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		730BF6E62A1AC7290055495B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				730BF6E72A1AC7680055495B /* FeedViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		731203622A181BB4005FB582 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +171,7 @@
 		731203632A181C15005FB582 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				730BF6E62A1AC7290055495B /* ViewModel */,
 				730BF6D62A190A520055495B /* Model */,
 				7340299C2A19041600D96DA4 /* View */,
 				731203622A181BB4005FB582 /* Controller */,
@@ -418,12 +440,14 @@
 				7348B2252A17AA4600F3341F /* SignViewModel.swift in Sources */,
 				7348B22B2A17AFEF00F3341F /* Network.swift in Sources */,
 				731318AD2A16CBDE00E12C86 /* SignViewController.swift in Sources */,
+				730BF6E52A1AB51E0055495B /* PostLikeResponse.swift in Sources */,
 				7348B2272A17ADB400F3341F /* CreateUserRequest.swift in Sources */,
 				7348B2232A179F6400F3341F /* MainCoordinator.swift in Sources */,
 				730BF6E22A1A6A000055495B /* KeychainManager.swift in Sources */,
 				730BF6D82A190A6D0055495B /* FeedCellModel.swift in Sources */,
 				731318A92A16CBDE00E12C86 /* AppDelegate.swift in Sources */,
 				731318AB2A16CBDE00E12C86 /* SceneDelegate.swift in Sources */,
+				730BF6E82A1AC7680055495B /* FeedViewModel.swift in Sources */,
 				7340299B2A1903EA00D96DA4 /* FeedTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

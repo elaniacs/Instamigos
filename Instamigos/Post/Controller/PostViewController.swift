@@ -11,21 +11,30 @@ class PostViewController: UIViewController {
     
     @IBOutlet weak var postButton: UIButton!
     @IBOutlet weak var contentTextView: UITextView!
+    
     weak var mainCoordinator: MainCoordinator?
     let postViewModel = PostViewModel()
+    var afterDismiss: (() -> Void)?
     
     @IBAction func cancelButtonAction(_ sender: UIButton) {
-        self.dismiss(animated: true)
+        customDismiss()
     }
     
     @IBAction func postButtonAction(_ sender: UIButton) {
         createPost()
+        customDismiss()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         contentTextView.delegate = self
         textPlaceholderStyle()
+    }
+    
+    func customDismiss() {
+        self.dismiss(animated: true) {
+            self.afterDismiss?()
+        }
     }
     
     func textPlaceholderStyle() {
