@@ -39,4 +39,3 @@ struct UserModel: Codable {
     let email: String
     let avatar: String?
 }
-

@@ -42,4 +42,10 @@ class MainCoordinator {
             currentViewController?.present(viewController, animated: true)
         }
     }
+    
+    func backToSign() {
+        DispatchQueue.main.async {
+            self.navigationController.popToRootViewController(animated: true)
+        }
+    }
 }

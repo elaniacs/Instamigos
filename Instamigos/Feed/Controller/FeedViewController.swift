@@ -22,7 +22,34 @@ class FeedViewController: UIViewController {
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
         navigationItem.rightBarButtonItems = [addButton]
         
+        let customButton = UIButton(type: .system)
+        customButton.setImage(UIImage(systemName: "person.crop.circle"), for: .normal)
+        customButton.addTarget(self, action: #selector(customButtonTapped), for: .touchUpInside)
+        
+        let customBarButton = UIBarButtonItem(customView: customButton)
+        navigationItem.leftBarButtonItem = customBarButton
+        
         reloadData()
+    }
+    
+    
+    @objc func customButtonTapped() {
+        let alertController = UIAlertController(title: "Profile", message: nil, preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: "Logout", style: .default, handler: { _ in
+            self.viewModel.postUserLogout {
+                KeychainManager.shared.deleteToken()
+                self.mainCoordinator?.backToSign()
+            }
+        }))
+        
+        alertController.addAction(UIAlertAction(title: "Delete account", style: .default, handler: { _ in
+            // TODO: LÓGICA PARA UTILIZAR A OPÇÃO 2
+
+        }))
+        
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alertController, animated: true, completion: nil)
+        
     }
     
     @objc
@@ -52,7 +79,7 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
         viewModel.getUserBy(userId: viewModel.postsArray[indexPath.row].user_id) { name in
             cell.getName(name: name)
         }
-
+        
         return cell
         
     }

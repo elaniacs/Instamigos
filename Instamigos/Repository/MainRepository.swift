@@ -42,4 +42,12 @@ class MainRepository {
             completion?(responseData)
         }
     }
+    
+    func postUserLogout(completion: (() -> Void)?) {
+        if let retriveToken = KeychainManager.shared.retrieveToken() {
+            network.fetchRequest(urlPath: "/users/logout", requestBody: nil, authentication: .bearer(token: retriveToken), httpMethod: .post, contentType: nil) { (_: SessionUserResponse) in
+                completion?()
+            }
+        }
+    }
 }
