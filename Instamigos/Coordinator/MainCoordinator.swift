@@ -48,4 +48,12 @@ class MainCoordinator {
             self.navigationController.popToRootViewController(animated: true)
         }
     }
+    
+    func showAlert(viewController: UIViewController, message: String, handler: ((UIAlertAction) -> Void)?) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: handler))
+            viewController.present(alert, animated: true, completion: nil)
+        }
+    }
 }

@@ -11,8 +11,10 @@ class MainRepository {
     
     let network = Network()
     
-    func postUser(data: CreateUserRequest) {
-        network.fetchRequest(urlPath: "/users", requestBody: data, authentication: nil, httpMethod: .post, contentType: .json) { (_: SessionUserResponse) in }
+    func postUser(data: CreateUserRequest, completion: (() -> Void)?) {
+        network.fetchRequest(urlPath: "/users", requestBody: data, authentication: nil, httpMethod: .post, contentType: .json) { (_: SessionUserResponse) in
+            completion?()
+        }
     }
     
     func loginUser(authentication: BasicAuthenticationModel, completion: ((SessionUserResponse) -> Void)?) {

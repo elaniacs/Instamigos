@@ -59,9 +59,15 @@ class SignViewController: UIViewController {
         let name = nameTextField.text ?? ""
         let email = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""
-        let confirmPassword = confirmPasswordTextField.text
+        let confirmPassword = confirmPasswordTextField.text ?? ""
         
-        signViewModel.postUser(name: name, email: email, password: password)
+        if signViewModel.validateFields(name: name, email: email, password: password, confirmPassword: confirmPassword, completion: showAlertVoid(message:)) {
+            signViewModel.postUser(name: name, email: email, password: password) {
+                self.mainCoordinator?.showAlert(viewController: self, message: "User created successfully") { _ in
+                    self.mainCoordinator?.callFeedViewController()
+                }
+            }
+        }
     }
     
     func loginUser() {
@@ -71,6 +77,10 @@ class SignViewController: UIViewController {
         signViewModel.loginUser(email: email, password: password) {
             self.mainCoordinator?.callFeedViewController()
         }
+    }
+    
+    func showAlertVoid(message: String) {
+        mainCoordinator?.showAlert(viewController: self, message: message, handler: nil)
     }
 }
 
