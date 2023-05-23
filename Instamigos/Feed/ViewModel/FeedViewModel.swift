@@ -9,21 +9,25 @@ import Foundation
 
 class FeedViewModel {
     
-    let mainRepository = MainRepository()
+    var mainRepository: MainRepository?
     var feedCell: [FeedCellModel] = []
     var postsArray: [PostLikeResponse] = []
     
     func getAllPosts(completion: (() -> Void)?) {
-        mainRepository.getAllPosts() { responseData in
-            self.postsArray = responseData
-            self.feedCell = self.convertToFeedCellModels(posts: responseData)
-            completion?()
+        mainRepository?.getAllPosts() { responseData in
+            if let responseData = responseData {
+                self.postsArray = responseData
+                self.feedCell = self.convertToFeedCellModels(posts: responseData)
+                completion?()
+            }
         }
     }
     
     func getUserBy(userId: String, completion: ((String) -> Void)?) {
-        mainRepository.getUserBy(userId: userId) { responseData in
-            completion?(responseData.name)
+        mainRepository?.getUserBy(userId: userId) { responseData in
+            if let responseData = responseData {
+                completion?(responseData.name)
+            }
         }
     }
     
@@ -39,8 +43,10 @@ class FeedViewModel {
     }
     
     func postUserLogout(completion: (() -> Void)?) {
-        mainRepository.postUserLogout {
-            completion?()
+        mainRepository?.postUserLogout { responseData in
+            if responseData != nil {
+                completion?()
+            }
         }
     }
 }

@@ -45,7 +45,7 @@ enum AuthenticationType {
 
 class Network {
     
-    func fetchRequest<T: Decodable>(urlPath: String, requestBody: CreateUserRequest?, authentication: AuthenticationType?, httpMethod: HTTPMethods, contentType: ContentTypes?, completion: @escaping ((_ responseData: T) -> Void)) {
+    func fetchRequest<T: Decodable>(urlPath: String, requestBody: CreateUserRequest?, authentication: AuthenticationType?, httpMethod: HTTPMethods, contentType: ContentTypes?, completion: @escaping ((_ responseData: T?, _ statusCode: Int) -> Void)) {
         
         let session = URLSession.shared
         
@@ -85,26 +85,31 @@ class Network {
         }
         
         let task = session.dataTask(with: request) { data, response, error in
+            
+            guard let response = response as? HTTPURLResponse else { return }
+            print("STATUS CODE: \(response.statusCode) \(response.url?.absoluteString ?? "")")
+            
             if let error = error {
                 print("Erro ao buscar dados: \(error.localizedDescription)")
+                completion(nil, response.statusCode)
                 return
-            }
-            
-            if let response = response as? HTTPURLResponse {
-                print("STATUS CODE: \(response.statusCode) \(response.url?.absoluteString ?? "")")
             }
             
             guard let data = data else {
                 return
             }
             
-            do {
-                let decoder = JSONDecoder()
-                let responseData = try decoder.decode(T.self, from: data)
-                completion(responseData)
-                
-            } catch {
-                print("Erro ao decodificar os dados JSON: \(error)")
+            switch response.statusCode {
+            case 200:
+                do {
+                    let decoder = JSONDecoder()
+                    let responseData = try decoder.decode(T.self, from: data)
+                    completion(responseData, response.statusCode)
+                } catch {
+                    print("Erro ao decodificar os dados JSON: \(error)")
+                }
+            default:
+                completion(nil, response.statusCode)
             }
         }
         

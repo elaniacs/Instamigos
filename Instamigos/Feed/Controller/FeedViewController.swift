@@ -12,7 +12,7 @@ class FeedViewController: UIViewController {
     @IBOutlet weak var feedTableView: UITableView!
     
     weak var mainCoordinator: MainCoordinator?
-    let viewModel = FeedViewModel()
+    var feedViewModel: FeedViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +36,7 @@ class FeedViewController: UIViewController {
     @objc func customButtonTapped() {
         let alertController = UIAlertController(title: "Profile", message: nil, preferredStyle: .actionSheet)
         alertController.addAction(UIAlertAction(title: "Logout", style: .default, handler: { _ in
-            self.viewModel.postUserLogout {
+            self.feedViewModel?.postUserLogout {
                 KeychainManager.shared.deleteToken()
                 self.mainCoordinator?.backToSign()
             }
@@ -58,7 +58,7 @@ class FeedViewController: UIViewController {
     }
     
     func reloadData() {
-        viewModel.getAllPosts() {
+        feedViewModel?.getAllPosts() {
             DispatchQueue.main.async {
                 self.feedTableView.reloadData()
             }
@@ -68,16 +68,20 @@ class FeedViewController: UIViewController {
 
 extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.feedCell.count
+        feedViewModel?.feedCell.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FeedTableViewCell", for: indexPath) as? FeedTableViewCell else { return UITableViewCell() }
         
-        cell.populateCell(data: viewModel.feedCell[indexPath.row])
+        if let data = feedViewModel?.feedCell[indexPath.row] {
+            cell.populateCell(data: data)
+        }
         
-        viewModel.getUserBy(userId: viewModel.postsArray[indexPath.row].user_id) { name in
-            cell.getName(name: name)
+        if let userId = feedViewModel?.postsArray[indexPath.row].user_id {
+            feedViewModel?.getUserBy(userId: userId) { name in
+                cell.getName(name: name)
+            }
         }
         
         return cell

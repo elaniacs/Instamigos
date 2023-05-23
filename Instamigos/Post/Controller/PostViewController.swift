@@ -13,7 +13,7 @@ class PostViewController: UIViewController {
     @IBOutlet weak var contentTextView: UITextView!
     
     weak var mainCoordinator: MainCoordinator?
-    let postViewModel = PostViewModel()
+    var postViewModel: PostViewModel?
     var afterDismiss: (() -> Void)?
     
     @IBAction func cancelButtonAction(_ sender: UIButton) {
@@ -48,7 +48,7 @@ class PostViewController: UIViewController {
     
     func createPost() {
         let content = contentTextView.text ?? ""
-        postViewModel.createPost(content: content) {
+        postViewModel?.createPost(content: content) {
             DispatchQueue.main.async {
                 self.dismiss(animated: true)
             }
@@ -73,7 +73,7 @@ extension PostViewController: UITextViewDelegate {
     }
     
     func textViewDidChange(_ textView: UITextView) {
-        postViewModel.savePostChanges(postContent: textView.text)
+        postViewModel?.savePostChanges(postContent: textView.text)
     }
 }
 

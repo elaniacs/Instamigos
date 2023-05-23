@@ -19,9 +19,11 @@ class SignViewController: UIViewController {
     @IBOutlet weak var signConfirmButton: UIButton!
     @IBOutlet var allTextFields: [UITextField]!
     @IBOutlet weak var signCardView: UIView!
-    let signViewModel = SignViewModel()
+    
     var signUp = true
+    
     weak var mainCoordinator: MainCoordinator?
+    var signViewModel: SignViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,10 +63,12 @@ class SignViewController: UIViewController {
         let password = passwordTextField.text ?? ""
         let confirmPassword = confirmPasswordTextField.text ?? ""
         
-        if signViewModel.validateFields(name: name, email: email, password: password, confirmPassword: confirmPassword, completion: showAlertVoid(message:)) {
-            signViewModel.postUser(name: name, email: email, password: password) {
-                self.mainCoordinator?.showAlert(viewController: self, message: "User created successfully") { _ in
-                    self.mainCoordinator?.callFeedViewController()
+        if let validateFields = signViewModel?.validateFields(name: name, email: email, password: password, confirmPassword: confirmPassword, completion: showAlertVoid(message:)) {
+            if validateFields {
+                signViewModel?.postUser(name: name, email: email, password: password) {
+                    self.mainCoordinator?.showAlert(viewController: self, message: "User created successfully") { _ in
+                        self.mainCoordinator?.callFeedViewController()
+                    }
                 }
             }
         }
@@ -74,7 +78,7 @@ class SignViewController: UIViewController {
         let email = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""
         
-        signViewModel.loginUser(email: email, password: password) {
+        signViewModel?.loginUser(email: email, password: password) {
             self.mainCoordinator?.callFeedViewController()
         }
     }

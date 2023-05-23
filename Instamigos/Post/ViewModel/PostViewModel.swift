@@ -8,11 +8,13 @@
 import Foundation
 
 class PostViewModel {
-    let mainRepository = MainRepository()
+    var mainRepository: MainRepository?
     
     func createPost(content: String, completion: (() -> Void)?) {
-        mainRepository.postCreatePost(content: content) {
-            completion?()
+        mainRepository?.postCreatePost(content: content) { responseData in
+            if responseData != nil {
+                completion?()
+            }
         }
     }
     

@@ -29,6 +29,7 @@
 		7348B2272A17ADB400F3341F /* CreateUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7348B2262A17ADB400F3341F /* CreateUserRequest.swift */; };
 		7348B2292A17AF2A00F3341F /* MainRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7348B2282A17AF2900F3341F /* MainRepository.swift */; };
 		7348B22B2A17AFEF00F3341F /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7348B22A2A17AFEF00F3341F /* Network.swift */; };
+		73ECE71F2A1D45190042FD8A /* StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73ECE71E2A1D45190042FD8A /* StatusCode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		7348B2262A17ADB400F3341F /* CreateUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserRequest.swift; sourceTree = "<group>"; };
 		7348B2282A17AF2900F3341F /* MainRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRepository.swift; sourceTree = "<group>"; };
 		7348B22A2A17AFEF00F3341F /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		73ECE71E2A1D45190042FD8A /* StatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				7348B22A2A17AFEF00F3341F /* Network.swift */,
+				73ECE71E2A1D45190042FD8A /* StatusCode.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73ECE71F2A1D45190042FD8A /* StatusCode.swift in Sources */,
 				730BF6DE2A1968E80055495B /* PostViewModel.swift in Sources */,
 				730BF6DB2A1939360055495B /* PostViewController.swift in Sources */,
 				7348B2292A17AF2A00F3341F /* MainRepository.swift in Sources */,
