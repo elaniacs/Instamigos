@@ -15,9 +15,12 @@ class PostViewModel {
             completion?()
         }
     }
+    
+    func savePostChanges(postContent: String) {
+        let defaults = UserDefaults.standard
+        defaults.set(postContent, forKey: "PostContet")
+        defaults.synchronize()
+        
+    }
 }
-
-
-
-
 

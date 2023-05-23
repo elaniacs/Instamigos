@@ -28,7 +28,11 @@ class PostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         contentTextView.delegate = self
-        textPlaceholderStyle()
+        contentTextView.text = UserDefaults.standard.string(forKey: "PostContet")
+        
+        if contentTextView.text.isEmpty {
+            textPlaceholderStyle()
+        }
     }
     
     func customDismiss() {
@@ -66,6 +70,10 @@ extension PostViewController: UITextViewDelegate {
             textView.text = "What is on your mind?"
             textView.textColor = UIColor.lightGray
         }
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        postViewModel.savePostChanges(postContent: textView.text)
     }
 }
 

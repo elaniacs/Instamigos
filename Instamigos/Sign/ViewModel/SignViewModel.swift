@@ -13,7 +13,13 @@ class SignViewModel {
     
     func postUser(name: String, email: String, password: String, completion: (() -> Void)?) {
         let data = CreateUserRequest(name: name, email: email, password: password)
-        mainRepository.postUser(data: data) {
+        mainRepository.postUser(data: data) { responseData in
+            
+            self.saveUserDefaults(name: responseData.user?.name, email: responseData.user?.email)
+            
+            if let token = responseData.token {
+                KeychainManager.shared.saveToken(token: token)
+            }
             completion?()
         }
     }
@@ -21,11 +27,21 @@ class SignViewModel {
     func loginUser(email: String, password: String, completion: (() -> Void)?) {
         let authentication = BasicAuthenticationModel(email: email, password: password)
         mainRepository.loginUser(authentication: authentication) { responseData in
+            
+            self.saveUserDefaults(name: responseData.user?.name, email: responseData.user?.email)
+            
             if let token = responseData.token {
                 KeychainManager.shared.saveToken(token: token)
-                completion?()
             }
+            completion?()
         }
+    }
+    
+    func saveUserDefaults(name: String?, email: String?) {
+        let defaults = UserDefaults.standard
+        defaults.set(name, forKey: "UserName")
+        defaults.set(email, forKey: "UserEmail")
+        defaults.synchronize()
     }
     
     func validateFields(name: String?, email: String?, password: String?, confirmPassword: String?, completion: ((String) -> Void)) -> Bool {
