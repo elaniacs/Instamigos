@@ -42,12 +42,15 @@ enum AuthenticationType {
     }
 }
 
-
 class Network {
     
+    let session: URLSession
+    
+    init(session: URLSession) {
+        self.session = session
+    }
+    
     func fetchRequest<T: Decodable>(urlPath: String, requestBody: CreateUserRequest?, authentication: AuthenticationType?, httpMethod: HTTPMethods, contentType: ContentTypes?, completion: @escaping ((_ responseData: T?, _ statusCode: Int) -> Void)) {
-        
-        let session = URLSession.shared
         
         var urlComponents = URLComponents()
         urlComponents.scheme = "http"

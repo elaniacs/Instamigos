@@ -9,7 +9,7 @@ import Foundation
 
 class MainRepository {
     
-    let network = Network()
+    let network = Network(session: URLSession.shared)
     weak var mainCoordinator: MainCoordinator?
     
     func postUser(data: CreateUserRequest, completion: ((SessionUserResponse?) -> Void)?) {
