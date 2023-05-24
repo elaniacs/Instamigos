@@ -35,6 +35,7 @@ class FeedViewController: UIViewController {
     
     @objc func customButtonTapped() {
         let alertController = UIAlertController(title: "Profile", message: nil, preferredStyle: .actionSheet)
+        
         alertController.addAction(UIAlertAction(title: "Logout", style: .default, handler: { _ in
             self.feedViewModel?.postUserLogout {
                 KeychainManager.shared.deleteToken()
@@ -43,8 +44,7 @@ class FeedViewController: UIViewController {
         }))
         
         alertController.addAction(UIAlertAction(title: "Delete account", style: .default, handler: { _ in
-            // TODO: LÓGICA PARA UTILIZAR A OPÇÃO 2
-
+            self.mainCoordinator?.showAlert(viewController: self, message:  "Feature under development. Will be available soon!", handler: nil)
         }))
         
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))

@@ -16,10 +16,18 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var likeButton: UIButton!
     
     @IBAction func likeButtonAction(_ sender: UIButton) {
+        // TODO: DECIDIR LÓGICA/NECESSIDADE DO LIKE
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        avatarImageView.layer.borderWidth = 1
+        avatarImageView.layer.borderColor = UIColor.gray.cgColor
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        avatarImageView.layer.cornerRadius = avatarImageView.frame.height / 2
     }
     
     func populateCell(data: FeedCellModel) {

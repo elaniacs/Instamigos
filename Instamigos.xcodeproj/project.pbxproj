@@ -30,6 +30,7 @@
 		7348B2292A17AF2A00F3341F /* MainRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7348B2282A17AF2900F3341F /* MainRepository.swift */; };
 		7348B22B2A17AFEF00F3341F /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7348B22A2A17AFEF00F3341F /* Network.swift */; };
 		73C57A412A1E7FE8005ACAAA /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C57A402A1E7FE8005ACAAA /* StringExtension.swift */; };
+		73C57A432A1E91BE005ACAAA /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C57A422A1E91BE005ACAAA /* UIViewExtension.swift */; };
 		73ECE71F2A1D45190042FD8A /* StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73ECE71E2A1D45190042FD8A /* StatusCode.swift */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,7 @@
 		7348B2282A17AF2900F3341F /* MainRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRepository.swift; sourceTree = "<group>"; };
 		7348B22A2A17AFEF00F3341F /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		73C57A402A1E7FE8005ACAAA /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		73C57A422A1E91BE005ACAAA /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		73ECE71E2A1D45190042FD8A /* StatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -312,6 +314,7 @@
 			isa = PBXGroup;
 			children = (
 				73C57A402A1E7FE8005ACAAA /* StringExtension.swift */,
+				73C57A422A1E91BE005ACAAA /* UIViewExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -460,6 +463,7 @@
 				7348B2232A179F6400F3341F /* MainCoordinator.swift in Sources */,
 				730BF6E22A1A6A000055495B /* KeychainManager.swift in Sources */,
 				730BF6D82A190A6D0055495B /* FeedCellModel.swift in Sources */,
+				73C57A432A1E91BE005ACAAA /* UIViewExtension.swift in Sources */,
 				731318A92A16CBDE00E12C86 /* AppDelegate.swift in Sources */,
 				73C57A412A1E7FE8005ACAAA /* StringExtension.swift in Sources */,
 				731318AB2A16CBDE00E12C86 /* SceneDelegate.swift in Sources */,
