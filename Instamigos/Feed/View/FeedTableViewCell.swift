@@ -23,7 +23,7 @@ class FeedTableViewCell: UITableViewCell {
     }
     
     func populateCell(data: FeedCellModel) {
-        timeLabel.text = data.createdAt
+        timeLabel.text = data.calculatesElapsedTime(postDate: data.createdAt.toDate(dateFormat: "yyyy-MM-dd'T'HH:mm:ssZ"))
         contentLabel.text = data.content
     }
     

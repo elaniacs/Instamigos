@@ -50,6 +50,7 @@ class PostViewController: UIViewController {
         let content = contentTextView.text ?? ""
         postViewModel?.createPost(content: content) {
             DispatchQueue.main.async {
+                self.postViewModel?.savePostChanges(postContent: "")
                 self.dismiss(animated: true)
             }
         }
