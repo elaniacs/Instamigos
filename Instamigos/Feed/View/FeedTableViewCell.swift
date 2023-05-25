@@ -14,10 +14,22 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var likeCountLabel: UILabel!
+    
+    var addOrRemoveLike: ((Bool, IndexPath) -> Void)?
+    var likeData: Bool?
     
     @IBAction func likeButtonAction(_ sender: UIButton) {
-        // TODO: IMPLEMENTAR LÓGICA DO LIKE
+        if let likeData = likeData, let indexPath = getIndexPath() {
+            addOrRemoveLike?(!likeData, indexPath)
+        }
     }
+    
+    private func getIndexPath() -> IndexPath? {
+        guard let tableView = superview as? UITableView else { return nil }
+        return tableView.indexPath(for: self)
+    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,6 +46,15 @@ class FeedTableViewCell: UITableViewCell {
     func populateCell(data: FeedCellModel) {
         timeLabel.text = data.calculatesElapsedTime(postDate: data.createdAt.toDate(dateFormat: "yyyy-MM-dd'T'HH:mm:ssZ"))
         contentLabel.text = data.content
+        likeCountLabel.text = "\(data.like_count)"
+        
+        likeData = data.isLiked
+        
+        if data.isLiked {
+            likeButton.setImage(UIImage(systemName: "hand.thumbsup.fill"), for: .normal)
+        } else {
+            likeButton.setImage(UIImage(systemName: "hand.thumbsup"), for: .normal)
+        }
     }
     
     func getName(name: String?) {
@@ -41,9 +62,9 @@ class FeedTableViewCell: UITableViewCell {
             self.nameLabel.text = name
         }
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-
+    
 }

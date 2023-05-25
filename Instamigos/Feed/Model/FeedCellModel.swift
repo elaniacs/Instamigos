@@ -11,6 +11,8 @@ struct FeedCellModel {
     let createdAt: String
     let avatar: String
     let content: String
+    let like_count: Int
+    var isLiked: Bool
     
     func calculatesElapsedTime(postDate: Date?) -> String {
          

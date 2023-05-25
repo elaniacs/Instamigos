@@ -75,4 +75,25 @@ class MainRepository {
             }
         }
     }
+    
+    func postLikeBy(postID: String, completion: (() -> Void)?) {
+        if let retriveToken = KeychainManager.shared.retrieveToken() {
+            network.fetchRequest(urlPath: "/likes", requestBody: nil, authentication: .bearer(token: retriveToken), httpMethod: .post, contentType: .textPlain(content: postID)) { (responseData: UserModel?, statusCode) in
+                let statusCode = StatusCode.getStatusCode(code: statusCode)
+                self.mainCoordinator?.showErrorMessage(statusCode: statusCode)
+                completion?()
+            }
+        }
+    }
+    
+    func deleteLikeBy(postID: String, completion: (() -> Void)?) {
+        if let retriveToken = KeychainManager.shared.retrieveToken() {
+            network.fetchRequest(urlPath: "/likes/\(postID)", requestBody: nil, authentication: .bearer(token: retriveToken), httpMethod: .delete, contentType: nil) { (responseData: UserModel?, statusCode) in
+                let statusCode = StatusCode.getStatusCode(code: statusCode)
+                self.mainCoordinator?.showErrorMessage(statusCode: statusCode)
+                completion?()
+            }
+        }
+    }
+    
 }

@@ -315,7 +315,7 @@
                                                             <rect key="frame" x="0.0" y="91.5" width="375" height="32"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWQ-lc-vmK">
-                                                                    <rect key="frame" x="309.5" y="0.0" width="49.5" height="24"/>
+                                                                    <rect key="frame" x="285.5" y="0.0" width="49.5" height="24"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="24" id="sem-21-gw2"/>
                                                                     </constraints>
@@ -325,12 +325,20 @@
                                                                         <action selector="likeButtonAction:" destination="fjq-nB-lBL" eventType="touchUpInside" id="7cC-mM-F6N"/>
                                                                     </connections>
                                                                 </button>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="85J-Ky-QAL">
+                                                                    <rect key="frame" x="326" y="8" width="33" height="16"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="eWQ-lc-vmK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dJc-w8-wCF" secondAttribute="leading" constant="20" symbolic="YES" id="OCn-A2-Yps"/>
+                                                                <constraint firstItem="85J-Ky-QAL" firstAttribute="bottom" secondItem="eWQ-lc-vmK" secondAttribute="bottom" id="Ovw-6v-aEY"/>
+                                                                <constraint firstAttribute="trailing" secondItem="85J-Ky-QAL" secondAttribute="trailing" constant="16" id="VDn-VI-nrT"/>
                                                                 <constraint firstAttribute="bottom" secondItem="eWQ-lc-vmK" secondAttribute="bottom" constant="8" id="Xm4-MG-1bX"/>
+                                                                <constraint firstItem="85J-Ky-QAL" firstAttribute="leading" secondItem="eWQ-lc-vmK" secondAttribute="trailing" constant="-9" id="bQZ-PX-wHY"/>
                                                                 <constraint firstItem="eWQ-lc-vmK" firstAttribute="top" secondItem="dJc-w8-wCF" secondAttribute="top" id="fol-hU-pSP"/>
-                                                                <constraint firstAttribute="trailing" secondItem="eWQ-lc-vmK" secondAttribute="trailing" constant="16" id="oAT-Ou-e2v"/>
                                                             </constraints>
                                                         </view>
                                                     </subviews>
@@ -361,6 +369,7 @@
                                             <outlet property="avatarImageView" destination="Jkb-DD-37d" id="lAe-O0-Epx"/>
                                             <outlet property="contentLabel" destination="f1F-nR-GaY" id="RIV-vz-xEM"/>
                                             <outlet property="likeButton" destination="eWQ-lc-vmK" id="EY2-kt-Vbb"/>
+                                            <outlet property="likeCountLabel" destination="85J-Ky-QAL" id="oxw-ei-mhN"/>
                                             <outlet property="nameLabel" destination="OrK-GO-1o6" id="Wkh-i0-SKc"/>
                                             <outlet property="timeLabel" destination="XMY-U3-nNe" id="lTc-dK-8gv"/>
                                         </connections>

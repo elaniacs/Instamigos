@@ -39,11 +39,24 @@ class FeedViewModel {
         }
     }
     
+    func postLikeBy(postID: String, completion: (() -> Void)?) {
+        mainRepository?.postLikeBy(postID: postID) {
+            completion?()
+        }
+    }
+    
+    func deleteLikeBy(postID: String, completion: (() -> Void)?) {
+        mainRepository?.deleteLikeBy(postID: postID) {
+            completion?()
+        }
+    }
+    
     func convertToFeedCellModels(posts: [PostLikeResponse]) -> [FeedCellModel] {
         var feedCellModels: [FeedCellModel] = []
         
         for post in posts {
-            let feedCell = FeedCellModel(createdAt: post.created_at, avatar: "", content: post.content)
+            let isLiked = UserDefaults.standard.bool(forKey: post.id)
+            let feedCell = FeedCellModel(createdAt: post.created_at, avatar: "", content: post.content, like_count: post.like_count, isLiked: isLiked)
             feedCellModels.append(feedCell)
         }
         

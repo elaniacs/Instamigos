@@ -69,6 +69,23 @@ class FeedViewController: UIViewController {
             }
         }
     }
+    
+    func addOrRemoveLike(add: Bool, index: IndexPath) {
+        guard let postId = feedViewModel?.postsArray[index.row].id else { return }
+        if add {
+            feedViewModel?.postLikeBy(postID: postId) {
+                self.feedViewModel?.feedCell[index.row].isLiked.toggle()
+                UserDefaults.standard.set(add, forKey: postId)
+                self.reloadData()
+            }
+        } else {
+            feedViewModel?.deleteLikeBy(postID: postId) {
+                self.feedViewModel?.feedCell[index.row].isLiked.toggle()
+                UserDefaults.standard.set(add, forKey: postId)
+                self.reloadData()
+            }
+        }
+    }
 }
 
 extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
@@ -82,6 +99,8 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
         if let data = feedViewModel?.feedCell[indexPath.row] {
             cell.populateCell(data: data)
         }
+        
+        cell.addOrRemoveLike = addOrRemoveLike
         
         if let userId = feedViewModel?.postsArray[indexPath.row].user_id {
             feedViewModel?.getUserBy(userId: userId) { name in

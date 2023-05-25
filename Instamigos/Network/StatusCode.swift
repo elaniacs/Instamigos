@@ -20,7 +20,7 @@ enum StatusCode: String {
     
     static func getStatusCode(code: Int) -> StatusCode {
         switch code {
-        case 200, 201: return .success
+        case 200, 201, 204: return .success
         case 400: return .invalidData
         case 401: return .authenticationFailed
         case 403: return .accessDenied
