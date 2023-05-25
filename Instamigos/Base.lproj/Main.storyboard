@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NVB-KO-k9N">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -8,6 +8,34 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Launch View Controller-->
+        <scene sceneID="Ncl-Ep-g58">
+            <objects>
+                <viewController storyboardIdentifier="LaunchViewController" id="NVB-KO-k9N" customClass="LaunchViewController" customModule="Instamigos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zsp-g8-kBK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchIco" translatesAutoresizingMaskIntoConstraints="NO" id="3Ty-xV-yBh">
+                                <rect key="frame" x="87.5" y="245" width="200" height="177"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="3Ty-xV-yBh" secondAttribute="height" multiplier="26:23" id="aqE-8W-4T5"/>
+                                    <constraint firstAttribute="width" constant="200" id="soy-R4-J4m"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="cKQ-Fm-Exl"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <constraints>
+                            <constraint firstItem="3Ty-xV-yBh" firstAttribute="centerY" secondItem="zsp-g8-kBK" secondAttribute="centerY" id="GuJ-1b-8ZL"/>
+                            <constraint firstItem="3Ty-xV-yBh" firstAttribute="centerX" secondItem="zsp-g8-kBK" secondAttribute="centerX" id="MEn-CG-Qu4"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K7N-od-UAz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-639" y="-35"/>
+        </scene>
         <!--Sign View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -378,6 +406,7 @@
     </scenes>
     <resources>
         <image name="hand.thumbsup" catalog="system" width="123" height="128"/>
+        <image name="launchIco" width="364" height="322"/>
         <image name="person.circle" catalog="system" width="128" height="123"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

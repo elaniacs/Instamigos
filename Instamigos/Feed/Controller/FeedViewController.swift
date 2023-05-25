@@ -16,8 +16,12 @@ class FeedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        
         feedTableView.delegate = self
         feedTableView.dataSource = self
+        title = "Feed"
         
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
         navigationItem.rightBarButtonItems = [addButton]
@@ -39,6 +43,7 @@ class FeedViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "Logout", style: .default, handler: { _ in
             self.feedViewModel?.postUserLogout {
                 KeychainManager.shared.deleteToken()
+                UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
                 self.mainCoordinator?.backToSign()
             }
         }))

@@ -32,6 +32,8 @@
 		73C57A412A1E7FE8005ACAAA /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C57A402A1E7FE8005ACAAA /* StringExtension.swift */; };
 		73C57A432A1E91BE005ACAAA /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C57A422A1E91BE005ACAAA /* UIViewExtension.swift */; };
 		73ECE71F2A1D45190042FD8A /* StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73ECE71E2A1D45190042FD8A /* StatusCode.swift */; };
+		73F277042A1EBACC003E8B5F /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F277032A1EBACC003E8B5F /* LaunchViewController.swift */; };
+		73F277062A1EBBDC003E8B5F /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F277052A1EBBDC003E8B5F /* LaunchViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,8 @@
 		73C57A402A1E7FE8005ACAAA /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		73C57A422A1E91BE005ACAAA /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		73ECE71E2A1D45190042FD8A /* StatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCode.swift; sourceTree = "<group>"; };
+		73F277032A1EBACC003E8B5F /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		73F277052A1EBBDC003E8B5F /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,6 +278,7 @@
 				731203692A181D18005FB582 /* Repository */,
 				731203682A181D0A005FB582 /* Network */,
 				731203672A181CF0005FB582 /* Coordinator */,
+				73F277072A1EC26B003E8B5F /* Launch */,
 				731203652A181C49005FB582 /* Sign */,
 				731203632A181C15005FB582 /* Feed */,
 				730BF6D92A1939100055495B /* Post */,
@@ -317,6 +322,31 @@
 				73C57A422A1E91BE005ACAAA /* UIViewExtension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		73F277072A1EC26B003E8B5F /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				73F277082A1EC28E003E8B5F /* ViewModel */,
+				73F277092A1EC295003E8B5F /* Controller */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		73F277082A1EC28E003E8B5F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				73F277052A1EBBDC003E8B5F /* LaunchViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		73F277092A1EC295003E8B5F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				73F277032A1EBACC003E8B5F /* LaunchViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -452,6 +482,7 @@
 			files = (
 				73ECE71F2A1D45190042FD8A /* StatusCode.swift in Sources */,
 				730BF6DE2A1968E80055495B /* PostViewModel.swift in Sources */,
+				73F277062A1EBBDC003E8B5F /* LaunchViewModel.swift in Sources */,
 				730BF6DB2A1939360055495B /* PostViewController.swift in Sources */,
 				7348B2292A17AF2A00F3341F /* MainRepository.swift in Sources */,
 				731203612A181B67005FB582 /* FeedViewController.swift in Sources */,
@@ -461,6 +492,7 @@
 				730BF6E52A1AB51E0055495B /* PostLikeResponse.swift in Sources */,
 				7348B2272A17ADB400F3341F /* CreateUserRequest.swift in Sources */,
 				7348B2232A179F6400F3341F /* MainCoordinator.swift in Sources */,
+				73F277042A1EBACC003E8B5F /* LaunchViewController.swift in Sources */,
 				730BF6E22A1A6A000055495B /* KeychainManager.swift in Sources */,
 				730BF6D82A190A6D0055495B /* FeedCellModel.swift in Sources */,
 				73C57A432A1E91BE005ACAAA /* UIViewExtension.swift in Sources */,

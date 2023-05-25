@@ -27,11 +27,17 @@ class SignViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.hidesBackButton = true
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        
         allTextFields.forEach { $0.delegate = self }
         signCardView.layer.cornerRadius = 10.0
         signCardView.applyShadow()
-        emailTextField.text = "elaniacs@gmail.com"
-        passwordTextField.text = "123456"
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        eraseAllFields()
     }
     
     @IBAction func signInButtonAction(_ sender: UIButton) {
@@ -68,6 +74,7 @@ class SignViewController: UIViewController {
                 signViewModel?.postUser(name: name, email: email, password: password) {
                     self.mainCoordinator?.showAlert(viewController: self, message: "User created successfully") { _ in
                         self.mainCoordinator?.callFeedViewController()
+                        
                     }
                 }
             }
@@ -85,6 +92,10 @@ class SignViewController: UIViewController {
     
     func showAlertVoid(message: String) {
         mainCoordinator?.showAlert(viewController: self, message: message, handler: nil)
+    }
+    
+    func eraseAllFields() {
+        allTextFields.forEach { $0.text = "" }
     }
 }
 

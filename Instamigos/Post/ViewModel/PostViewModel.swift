@@ -22,7 +22,6 @@ class PostViewModel {
         let defaults = UserDefaults.standard
         defaults.set(postContent, forKey: "PostContet")
         defaults.synchronize()
-        
     }
 }
 

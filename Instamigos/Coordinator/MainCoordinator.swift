@@ -17,6 +17,17 @@ class MainCoordinator {
     }
     
     func start() {
+        let launchViewModel = LaunchViewModel()
+        launchViewModel.mainRepository = mainRepository
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let viewController = storyboard.instantiateViewController(withIdentifier: "LaunchViewController") as? LaunchViewController {
+            viewController.launchViewModel = launchViewModel
+            viewController.mainCoordinator = self
+            navigationController.pushViewController(viewController, animated: true)
+        }
+    }
+    
+    func callSignViewController() {
         let signViewModel = SignViewModel()
         signViewModel.mainRepository = mainRepository
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -56,7 +67,11 @@ class MainCoordinator {
     
     func backToSign() {
         DispatchQueue.main.async {
-            self.navigationController.popToRootViewController(animated: true)
+            if let targetViewController = self.navigationController.viewControllers.first(where: { $0 is SignViewController }) as? SignViewController {
+                self.navigationController.popToViewController(targetViewController, animated: true)
+            } else {
+                self.callSignViewController()
+            }
         }
     }
     

@@ -65,4 +65,14 @@ class MainRepository {
             }
         }
     }
+    
+    func getCurrentAuthenticatedUser(completion: ((UserModel?) -> Void)?) {
+        if let retriveToken = KeychainManager.shared.retrieveToken() {
+            network.fetchRequest(urlPath: "/users/me", requestBody: nil, authentication: .bearer(token: retriveToken), httpMethod: .get, contentType: nil) { responseData, statusCode in
+                let statusCode = StatusCode.getStatusCode(code: statusCode)
+                self.mainCoordinator?.showErrorMessage(statusCode: statusCode)
+                completion?(responseData)
+            }
+        }
+    }
 }
