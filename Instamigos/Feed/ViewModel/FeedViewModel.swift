@@ -13,6 +13,8 @@ class FeedViewModel {
     var feedCell: [FeedCellModel] = []
     var postsArray: [PostLikeResponse] = []
     
+    let cache = NSCache<NSString, AnyObject>()
+    
     func getAllPosts(completion: (() -> Void)?) {
         mainRepository?.getAllPosts() { responseData in
             if let responseData = responseData {
@@ -24,8 +26,14 @@ class FeedViewModel {
     }
     
     func getUserBy(userId: String, completion: ((String) -> Void)?) {
+        if let cachedData = cache.object(forKey: userId as NSString) as? UserModel {
+            completion?(cachedData.name)
+            return
+        }
+        
         mainRepository?.getUserBy(userId: userId) { responseData in
             if let responseData = responseData {
+                self.cache.setObject(responseData as AnyObject, forKey: userId as NSString)
                 completion?(responseData.name)
             }
         }
