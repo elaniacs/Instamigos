@@ -20,6 +20,9 @@ class SignViewController: UIViewController {
     @IBOutlet var allTextFields: [UITextField]!
     @IBOutlet weak var signCardView: UIView!
     
+    @IBOutlet weak var signUpBarView: UIView!
+    @IBOutlet weak var signInBarView: UIView!
+    
     var signUp = true
     
     weak var mainCoordinator: MainCoordinator?
@@ -31,9 +34,11 @@ class SignViewController: UIViewController {
         navigationItem.hidesBackButton = true
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         
+        signInBarView.isHidden = true
         allTextFields.forEach { $0.delegate = self }
         signCardView.layer.cornerRadius = 10.0
         signCardView.applyShadow()
+       
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -41,17 +46,21 @@ class SignViewController: UIViewController {
     }
     
     @IBAction func signInButtonAction(_ sender: UIButton) {
+        hideBarViews()
         nameTextField.isHidden = true
         confirmPasswordTextField.isHidden = true
         welcomeDescription.text = "Have a account? Sign In"
         signConfirmButton.setTitle("Sign In", for: .normal)
+        signInBarView.isHidden = false
         signUp = false
     }
     
     @IBAction func signUpButtonAction(_ sender: UIButton) {
+        hideBarViews()
         allTextFields.forEach { $0.isHidden = false }
         welcomeDescription.text = "New here? Sign Up"
         signConfirmButton.setTitle("Sign Up", for: .normal)
+        signUpBarView.isHidden = false
         signUp = true
     }
     
@@ -61,6 +70,11 @@ class SignViewController: UIViewController {
         } else {
             loginUser()
         }
+    }
+    
+    func hideBarViews() {
+        signUpBarView.isHidden = true
+        signInBarView.isHidden = true
     }
     
     func createUser() {

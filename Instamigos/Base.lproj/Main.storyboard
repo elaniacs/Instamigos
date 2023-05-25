@@ -45,7 +45,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="o4o-1G-9ca">
-                                <rect key="frame" x="16" y="44" width="343" height="54.5"/>
+                                <rect key="frame" x="16" y="16" width="343" height="54.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ct8-83-uNM">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="29"/>
@@ -62,10 +62,10 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j9w-lq-ySm">
-                                <rect key="frame" x="16" y="122.5" width="343" height="520.5"/>
+                                <rect key="frame" x="16" y="94.5" width="343" height="548.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="goe-66-w8B">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="520.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="548.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zn4-PW-ms4">
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="16"/>
@@ -73,29 +73,71 @@
                                                     <constraint firstAttribute="height" constant="16" id="VXK-4D-Xla"/>
                                                 </constraints>
                                             </view>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="it0-uG-qvs">
-                                                <rect key="frame" x="0.0" y="16" width="343" height="34.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="it0-uG-qvs">
+                                                <rect key="frame" x="0.0" y="16" width="343" height="50"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3bx-Ur-jKp">
-                                                        <rect key="frame" x="0.0" y="0.0" width="171.5" height="34.5"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="Sign Up"/>
-                                                        <connections>
-                                                            <action selector="signUpButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rEy-DU-5jz"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fM7-KR-uSq">
-                                                        <rect key="frame" x="171.5" y="0.0" width="171.5" height="34.5"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="Sign In"/>
-                                                        <connections>
-                                                            <action selector="signInButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YFj-v3-H4X"/>
-                                                        </connections>
-                                                    </button>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ied-2S-nBM">
+                                                        <rect key="frame" x="0.0" y="0.0" width="171.5" height="50"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3bx-Ur-jKp">
+                                                                <rect key="frame" x="0.0" y="0.0" width="171.5" height="46"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" title="Sign Up"/>
+                                                                <connections>
+                                                                    <action selector="signUpButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rEy-DU-5jz"/>
+                                                                </connections>
+                                                            </button>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AnV-k3-bWx">
+                                                                <rect key="frame" x="36" y="46" width="99.5" height="4"/>
+                                                                <color key="backgroundColor" red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="4" id="z94-Nn-mJ6"/>
+                                                                </constraints>
+                                                            </view>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="3bx-Ur-jKp" firstAttribute="leading" secondItem="Ied-2S-nBM" secondAttribute="leading" id="2ua-ht-kJJ"/>
+                                                            <constraint firstAttribute="trailing" secondItem="3bx-Ur-jKp" secondAttribute="trailing" id="Lgr-It-vIa"/>
+                                                            <constraint firstAttribute="trailing" secondItem="AnV-k3-bWx" secondAttribute="trailing" constant="36" id="V9e-iC-W0C"/>
+                                                            <constraint firstItem="3bx-Ur-jKp" firstAttribute="top" secondItem="Ied-2S-nBM" secondAttribute="top" id="VIe-Bx-7cI"/>
+                                                            <constraint firstItem="AnV-k3-bWx" firstAttribute="top" secondItem="3bx-Ur-jKp" secondAttribute="bottom" id="cUO-N8-Gs9"/>
+                                                            <constraint firstItem="AnV-k3-bWx" firstAttribute="leading" secondItem="Ied-2S-nBM" secondAttribute="leading" constant="36" id="maY-t3-C3b"/>
+                                                            <constraint firstAttribute="bottom" secondItem="AnV-k3-bWx" secondAttribute="bottom" id="ri1-GO-oTB"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PG1-pZ-DJb">
+                                                        <rect key="frame" x="171.5" y="0.0" width="171.5" height="50"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fM7-KR-uSq">
+                                                                <rect key="frame" x="0.0" y="0.0" width="171.5" height="46"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" title="Sign In"/>
+                                                                <connections>
+                                                                    <action selector="signInButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YFj-v3-H4X"/>
+                                                                </connections>
+                                                            </button>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eY0-8C-jql">
+                                                                <rect key="frame" x="36" y="46" width="99.5" height="4"/>
+                                                                <color key="backgroundColor" red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="4" id="xgy-iG-O3h"/>
+                                                                </constraints>
+                                                            </view>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="eY0-8C-jql" secondAttribute="trailing" constant="36" id="4d7-31-xoo"/>
+                                                            <constraint firstItem="eY0-8C-jql" firstAttribute="leading" secondItem="PG1-pZ-DJb" secondAttribute="leading" constant="36" id="5Rb-ar-ToT"/>
+                                                            <constraint firstItem="fM7-KR-uSq" firstAttribute="leading" secondItem="PG1-pZ-DJb" secondAttribute="leading" id="Et6-xF-y8g"/>
+                                                            <constraint firstAttribute="bottom" secondItem="eY0-8C-jql" secondAttribute="bottom" id="N9J-py-zFy"/>
+                                                            <constraint firstAttribute="trailing" secondItem="fM7-KR-uSq" secondAttribute="trailing" id="Phr-rG-iwL"/>
+                                                            <constraint firstItem="eY0-8C-jql" firstAttribute="top" secondItem="fM7-KR-uSq" secondAttribute="bottom" id="Qun-cc-MOe"/>
+                                                            <constraint firstItem="fM7-KR-uSq" firstAttribute="top" secondItem="PG1-pZ-DJb" secondAttribute="top" id="sjp-u1-UZs"/>
+                                                        </constraints>
+                                                    </view>
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1JT-lL-15v">
-                                                <rect key="frame" x="0.0" y="50.5" width="343" height="470"/>
+                                                <rect key="frame" x="0.0" y="66" width="343" height="482.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="xIr-5R-0cc">
                                                         <rect key="frame" x="16" y="16" width="311" height="184"/>
@@ -123,7 +165,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1si-0V-0kX">
-                                                        <rect key="frame" x="16" y="412.5" width="311" height="33.5"/>
+                                                        <rect key="frame" x="16" y="425" width="311" height="33.5"/>
                                                         <color key="backgroundColor" red="0.58105844259999995" green="0.12855249639999999" blue="0.57453137639999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Sign Up">
@@ -167,7 +209,7 @@
                             <constraint firstItem="j9w-lq-ySm" firstAttribute="top" secondItem="o4o-1G-9ca" secondAttribute="bottom" constant="24" id="kpy-dV-fWV"/>
                             <constraint firstItem="o4o-1G-9ca" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="mxe-XX-NWj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="o4o-1G-9ca" secondAttribute="trailing" constant="16" id="rpN-gU-cTJ"/>
-                            <constraint firstItem="o4o-1G-9ca" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="44" id="vkd-W1-YMW"/>
+                            <constraint firstItem="o4o-1G-9ca" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="vkd-W1-YMW"/>
                         </constraints>
                     </view>
                     <connections>
@@ -177,7 +219,9 @@
                         <outlet property="passwordTextField" destination="IXS-w9-KAu" id="bHX-Vo-95u"/>
                         <outlet property="signCardView" destination="j9w-lq-ySm" id="VoA-mO-W4P"/>
                         <outlet property="signConfirmButton" destination="1si-0V-0kX" id="whn-7h-5bb"/>
+                        <outlet property="signInBarView" destination="eY0-8C-jql" id="FMD-Yk-eng"/>
                         <outlet property="signInButton" destination="fM7-KR-uSq" id="9ve-vd-Sph"/>
+                        <outlet property="signUpBarView" destination="AnV-k3-bWx" id="Shz-Lu-cHb"/>
                         <outlet property="signUpButton" destination="3bx-Ur-jKp" id="ezh-LW-sBu"/>
                         <outlet property="welcomeDescription" destination="0jU-og-6X7" id="xtg-HS-3Px"/>
                         <outletCollection property="allTextFields" destination="7yu-TQ-SUQ" collectionClass="NSMutableArray" id="kSL-cD-Y1f"/>
